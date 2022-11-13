@@ -1,0 +1,2 @@
+= RUNNING
+elixir genetic/scripts/one_max.exs
