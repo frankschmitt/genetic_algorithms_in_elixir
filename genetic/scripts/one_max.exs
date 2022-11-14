@@ -31,6 +31,21 @@ crossover =
     )
   end
 
+# random mutation; we mutate 5% of the population
+mutation = 
+  fn population ->
+    population
+    |> Enum.map(
+      fn chromosome ->
+        if :rand.uniform() < 0.05 do
+          Enum.shuffle(chromosome)
+        else
+          chromosome
+        end
+      end)
+  end
+ 
+
 algorithm =
   fn population, algorithm -> 
     best = Enum.max_by(population, &Enum.sum/1)
@@ -42,6 +57,7 @@ algorithm =
       |> evaluate.()
       |> selection.()
       |> crossover.()
+      |> mutation.()
       |> algorithm.(algorithm)
     end
   end
