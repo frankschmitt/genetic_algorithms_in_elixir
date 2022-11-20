@@ -11,7 +11,7 @@ defmodule Genetic do
   def evolve(population, problem, opts \\ []) do
     population = evaluate(population, &problem.fitness_function/1, opts)
     best = hd(population)
-    IO.write("\rCurrent Best: #{best.fitness}")
+    IO.write("\rCurrent Best: #{best.fitness}, phenotype: #{best.genes}")
     if problem.terminate?(population) do
       best
     else

@@ -21,6 +21,13 @@ be found at [https://hexdocs.pm/genetic](https://hexdocs.pm/genetic).
 
 
 ## Playing around
+### Solve the one-max problem
 ```
 mix run scripts/one_max.exs
+```
+
+### Find the word best matching supercalifragilisticexpialidocious
+
+```
+mix run scripts/speller.exs
 ```
