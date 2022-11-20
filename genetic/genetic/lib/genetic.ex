@@ -1,7 +1,6 @@
 defmodule Genetic do
 
-  # def run(fitness_function, genotype, max_fitness, opts \\ {}) do
-  def run(genotype, fitness_function, max_fitness, opts \\ {}) do
+  def run(fitness_function, genotype, max_fitness, opts \\ []) do
     population = initialize(genotype, opts)
     population
     |> evolve(fitness_function, max_fitness, opts)
@@ -56,7 +55,7 @@ defmodule Genetic do
     population
     |> Enum.map(
          fn chromosome -> 
-           if rand.uniform() < 0.05 do
+           if :rand.uniform() < 0.05 do
              Enum.shuffle(chromosome)
            else
              chromosome
