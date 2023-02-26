@@ -2,12 +2,14 @@ alias Types.Chromosome
 
 defmodule Genetic do
 
+  # Run genetic algorithm for the given problem
   def run(problem, opts \\ []) do
     population = initialize(&problem.genotype/0)
     population
     |> evolve(problem, opts)
   end
 
+  # Stepwise evolve the given population  
   def evolve(population, problem, opts \\ []) do
     population = evaluate(population, &problem.fitness_function/1, opts)
     best = hd(population)
@@ -23,11 +25,14 @@ defmodule Genetic do
     end
   end
 
+  # Initialize a population using the given function to instantiate a genotyp
   def initialize(genotype, opts \\ []) do
     population_size = Keyword.get(opts, :population_size, 100)
     for _ <- 1..population_size, do: genotype.()
   end
 
+  # Evaluate the given population with the given fitness function
+  # @returns Population, sorted by fitness
   def evaluate(population, fitness_function, opts \\ []) do
     population
     |> Enum.map(
@@ -40,12 +45,17 @@ defmodule Genetic do
     |> Enum.sort_by(& &1.fitness, &>=/2)
   end
 
+  # Select individuums for crossover
+  # @returns pair of individua 
   def select(population, opts \\ []) do
     population
     |> Enum.chunk_every(2)
     |> Enum.map(&List.to_tuple(&1))
   end
 
+  # Perform crossover 
+  # @param population list of 2-tuples (= parents) selected for crossover
+  # @returns new population (= children)
   def crossover(population, opts \\ []) do
     population
     |> Enum.reduce([], 
@@ -61,6 +71,7 @@ defmodule Genetic do
         )
   end
 
+  # Mutate a certain percentage (5%) of the given population
   def mutation(population, opts \\ []) do
     population
     |> Enum.map(

@@ -1,2 +1,10 @@
-= RUNNING
+= SYNOPSIS
+Exercises + solutions for "Genetic programming in Elixir"
+
+= Chapter 1: Getting started
+== One max
 elixir genetic/scripts/one_max.exs
+
+= Everything else
+navigate to genetic/genetic, and consult the README there
+

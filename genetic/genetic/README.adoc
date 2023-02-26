@@ -1,8 +1,7 @@
-# Genetic
+= Genetic
+Exercises and solutions to "Genetic Algorithms in Elixir"
 
-**TODO: Add description**
-
-## Installation
+== Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `genetic` to your list of dependencies in `mix.exs`:
@@ -15,18 +14,23 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+: Add description**
+
+**TODO: Add description**
+
+Documentation can be generated with [ExDoc](https://github.com/
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/genetic](https://hexdocs.pm/genetic).
 
 
-## Playing around
-### Solve the one-max problem
+== Chapter 1
+=== Solve the one-max problem
 ```
 mix run scripts/one_max.exs
 ```
 
-### Find the word best matching supercalifragilisticexpialidocious
+== Chapter 2: Breaking down Genetic Algorithms
+=== Speller: Find the word best matching supercalifragilisticexpialidocious
 
 ```
 mix run scripts/speller.exs
