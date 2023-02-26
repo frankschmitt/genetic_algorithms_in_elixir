@@ -14,9 +14,7 @@ def deps do
 end
 ```
 
-: Add description**
-
-**TODO: Add description**
+A framework for solving optimization problems using Genetic Algorithms.
 
 Documentation can be generated with [ExDoc](https://github.com/
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
@@ -25,11 +23,15 @@ be found at [https://hexdocs.pm/genetic](https://hexdocs.pm/genetic).
 
 == Chapter 1
 === Solve the one-max problem
+(see parent directory)
+
+== Chapter 2: Breaking down Genetic Algorithms
+=== Solve the one-max problem
 ```
 mix run scripts/one_max.exs
 ```
 
-== Chapter 2: Breaking down Genetic Algorithms
+== Chapter 3: Encoding problems and solutions
 === Speller: Find the word best matching supercalifragilisticexpialidocious
 
 ```
