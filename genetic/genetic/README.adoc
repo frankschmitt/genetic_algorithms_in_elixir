@@ -37,3 +37,5 @@ mix run scripts/one_max.exs
 ```
 mix run scripts/speller.exs
 ```
+
+=== Cargo: Maximize profit with given constraint (Knapsack problem, Constraint Satisfaction Problem (CSP))
