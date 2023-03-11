@@ -39,3 +39,7 @@ mix run scripts/speller.exs
 ```
 
 === Cargo: Maximize profit with given constraint (Knapsack problem, Constraint Satisfaction Problem (CSP))
+```
+mix run scripts/cargo.exs
+```
+

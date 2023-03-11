@@ -12,7 +12,25 @@ defmodule OneMax do
   def fitness_function(chromosome), do: Enum.sum(chromosome.genes)
 
   @impl true
-  def terminate?([ best | _]), do: best.fitness == 42
+  def terminate?(population), do: avg_terminate?(population)
+
+  # Maximum Fitness Threshold
+  def max_terminate?([ best | _]), do: best.fitness == 42
+
+  # Minimum Fitness Threshold
+  def min_terminate?(population), do:
+    Enum.min_by(population, &OneMax.fitness_function/1) == 0
+
+  # Average Fitness Threshold
+  def avg_terminate?(population) do
+    avg = 
+      population
+      |> Enum.map(&OneMax.fitness_function/1)
+      |> Enum.sum() 
+      |> (fn x -> x / length(population) end).()
+    IO.write("avg: #{avg}")
+    avg == 21
+  end
 end
 
 solution = Genetic.run(OneMax)
