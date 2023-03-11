@@ -17,7 +17,9 @@ defmodule Speller do
     String.jaro_distance(target, guess)
   end
 
-  def terminate?([ best | _]), do: best.fitness == 1
+  def terminate?([ best | _], generation) do
+    (best.fitness == 1) || (generation >= 100)
+  end
 
 end
 

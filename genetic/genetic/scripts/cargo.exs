@@ -4,7 +4,7 @@ defmodule Cargo do
   alias Types.Chromosome
 
   # generate a new individuum
-  # for each item, we flip a coin to determine whether to include it or not
+  # for each item, we flip a coin to determina whether to include it or not
   @impl true
   def genotype do
     genes = for _ <- 1..10, do: Enum.random(0..1)
@@ -37,8 +37,8 @@ defmodule Cargo do
   end
 
   @impl true
-  def terminate?(population) do
-    Enum.max_by(population, &Cargo.fitness_function/1).fitness == 53
+  def terminate?(population, generation) do
+    (Enum.max_by(population, &Cargo.fitness_function/1).fitness == 53) || (generation >= 1000)
   end
 
 end
