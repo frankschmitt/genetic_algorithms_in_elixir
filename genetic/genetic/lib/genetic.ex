@@ -18,12 +18,11 @@ defmodule Genetic do
     if problem.terminate?(population, generation) do
       best
     else
-      generation = generation + 1
       population
       |> select(opts)
       |> crossover(opts)
       |> mutation(opts)
-      |> evolve(problem, generation, opts)
+      |> evolve(problem, generation+1, opts)
     end
   end
 
